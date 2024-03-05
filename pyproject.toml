@@ -1,0 +1,27 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+
+requires = [
+  "setuptools",
+]
+
+
+[project]
+description = "A library and CLI utilities for managing performance states of NVIDIA GPUs."
+name = "nvidia_pstate"
+version = "1.0.0"
+readme = "README.md"
+
+authors = [
+  { name = "sasha0552", email = "admin@sasha0552.org" },
+]
+
+classifiers = [
+  "Programming Language :: Python :: 3",
+]
+
+license = { text = "MIT" }
+
+
+[project.scripts]
+nvidia-pstate = "nvidia_pstate.scripts.nvidia_pstate:main"
