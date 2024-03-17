@@ -1,5 +1,6 @@
 import ctypes
 import sys
+import platform
 
 # Library
 _lib = None
@@ -8,8 +9,12 @@ _lib = None
 if sys.platform.startswith("linux"):
   _lib = ctypes.CDLL("libnvidia-api.so")
 elif sys.platform.startswith("win32"):
-  _lib = ctypes.CDLL("nvapi.dll")
-else:
+  if platform.architecture()[0].startswith("64bit"):
+    _lib = ctypes.CDLL("nvapi64.dll")
+  else:
+    _lib = ctypes.CDLL("nvapi.dll")
+
+if not _lib:
   raise AssertionError(f"Unsupported operating system: {sys.platform}")
 
 # (undocumented)
