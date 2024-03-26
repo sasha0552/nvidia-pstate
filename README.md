@@ -9,16 +9,19 @@ pip3 install nvidia_pstate
 ## Usage (CLI)
 ```sh
 # List available performance states (TODO: does not work right now, use nvidia-smi -q and count memory clocks)
-nvidia-pstate list-pstates
+nvidia-pstate -q
 
 # Set performance state for specific GPU
-nvidia-pstate set-pstate -i 0 -ps 0
+nvidia-pstate -i 0 -ps 0
 
 # Let driver decide which performance state GPU should use
-nvidia-pstate set-pstate -i 0 -ps 16
+nvidia-pstate -i 0 -ps 16
+
+# Set performance state for specific GPUs
+nvidia-pstate -i 0 1 3 4 -ps 0
 
 # Set performance state for all GPUs
-nvidia-pstate set-pstate -ps 0
+nvidia-pstate -ps 0
 ```
 
 ## Usage (API)
