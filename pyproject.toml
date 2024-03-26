@@ -9,7 +9,7 @@ requires = [
 [project]
 description = "A library and CLI utilities for managing performance states of NVIDIA GPUs."
 name = "nvidia_pstate"
-version = "1.0.3"
+version = "1.0.4"
 readme = "README.md"
 
 authors = [
