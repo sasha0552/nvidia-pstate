@@ -7,7 +7,10 @@ _lib = None
 
 # Load library
 if sys.platform.startswith("linux"):
-  _lib = ctypes.CDLL("libnvidia-api.so")
+  try:
+    _lib = ctypes.CDLL("libnvidia-api.so.1")
+  except:
+    _lib = ctypes.CDLL("libnvidia-api.so")
 elif sys.platform.startswith("win32"):
   if platform.architecture()[0].startswith("64bit"):
     _lib = ctypes.CDLL("nvapi64.dll")
