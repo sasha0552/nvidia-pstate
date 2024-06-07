@@ -7,7 +7,7 @@ A library and CLI utilities for managing performance states of NVIDIA GPUs.
 Make sure you have the proprietary NVIDIA driver and the package providing `libnvidia-api.so` installed.
 
 - ArchLinux: `nvidia-utils`
-- Debian: `libnvidia-api1`
+- Debian: `libnvidia-api1` or `libnvidia-tesla-api1` (depending on the GPU)
 - Ubuntu: `libnvidia-gl-535` (?)
 
 #### Windows
