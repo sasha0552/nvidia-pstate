@@ -10,6 +10,8 @@ Make sure you have the proprietary NVIDIA driver and the package providing `libn
 - Debian: `libnvidia-api1` or `libnvidia-tesla-api1` (depending on the GPU and driver installed)
 - Ubuntu: `libnvidia-gl-535` (?)
 
+On Debian derivatives, you can use `apt search libnvidia-api.so.1` to find the package you need.
+
 #### Windows
 Make sure the NVIDIA driver is installed.
 
