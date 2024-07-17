@@ -86,9 +86,18 @@ def NvAPI_GPU_GetPstates20(hPhysicalGpu: ctypes.c_void_p, pPstatesInfo: ctypes.c
 
   return _NvAPI_GPU_GetPstates20(hPhysicalGpu, pPstatesInfo)
 
-# (undocumented)
+# https://github.com/sasha0552/nvidia-pstate/issues/4
 _NvAPI_GPU_SetForcePstate_ptr   = nvapi_QueryInterface(0x025bfb10)
 _NvAPI_GPU_SetForcePstate_proto = ctypes.CFUNCTYPE(ctypes.c_int, ctypes.c_void_p, ctypes.c_int, ctypes.c_int)
 _NvAPI_GPU_SetForcePstate       = ctypes.cast(_NvAPI_GPU_SetForcePstate_ptr, _NvAPI_GPU_SetForcePstate_proto)
-def NvAPI_GPU_SetForcePstate(hPhysicalGpu: ctypes.c_void_p, pstate: int, int3: int) -> int:
-  return _NvAPI_GPU_SetForcePstate(hPhysicalGpu, pstate, int3)
+def NvAPI_GPU_SetForcePstate(hPhysicalGpu: ctypes.c_void_p, pstate: int, fallback: int) -> int:
+  """
+    hPhysicalGpu: GPU handle.
+    pstate: Desired p-state. Valid values are 0 - 15 where 0 is the highest performance and 15 is idle.
+            Not all cards support all states. By setting it to 16 you're using the fallback state as described below.
+    fallback: The fallback state. 1 = fallback to high performance, 2 = fallback to low performance.
+              This allows the driver to control the p-state as needed with the default being high or low performance based on the value passed.
+              Using 2 means that the gpu will attempt to use a low p-state unless higher performance is required, and then it automatically increases as needed.
+  """
+
+  return _NvAPI_GPU_SetForcePstate(hPhysicalGpu, pstate, fallback)
