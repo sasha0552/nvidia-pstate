@@ -1,6 +1,9 @@
 # nvidia-pstate
 A library and CLI utilities for managing performance states of NVIDIA GPUs.
 
+> [!IMPORTANT]
+Try the new implementation - [nvidia-pstated](https://github.com/sasha0552/nvidia-pstated). The daemon does not require application patching and switches performance states automatically.
+
 ## Installation
 ### Prerequirements
 #### Linux
