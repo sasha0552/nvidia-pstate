@@ -9,7 +9,7 @@ requires = [
 [project]
 description = "A library and CLI utilities for managing performance states of NVIDIA GPUs."
 name = "nvidia_pstate"
-version = "1.0.5"
+version = "1.0.5.post1"
 readme = "README.md"
 
 authors = [
@@ -17,9 +17,18 @@ authors = [
 ]
 
 classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: System Administrators",
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python",
-  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: System :: Hardware",
 ]
 
 license = { text = "MIT" }
