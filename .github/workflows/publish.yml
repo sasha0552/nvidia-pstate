@@ -14,22 +14,22 @@ jobs:
       url: https://pypi.org/project/nvidia-pstate
 
     permissions:
+      attestations: write
       id-token: write
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v3
+      - name: Build wheels
+        run: pipx run build
+
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@v1
         with:
-          python-version: "3.x"
+          subject-path: dist/*
 
-      - name: Install dependencies
-        run: pip install build
-
-      - name: Build package
-        run: python -m build
-
-      - name: Publish package
+      - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist
