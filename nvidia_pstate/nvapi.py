@@ -98,7 +98,7 @@ def NvAPI_GPU_SetForcePstate(hPhysicalGpu: ctypes.c_void_p, pstate: int, fallbac
     fallback: The fallback pstate (if the requested pstate is not available).
               0 = return error
               1 = fallback to a higher pstate (e.g. 0)
-              2 = fallback to a lower pstate (e.g. 16)
+              2 = fallback to a lower pstate (e.g. 15)
   """
 
   return _NvAPI_GPU_SetForcePstate(hPhysicalGpu, pstate, fallback)
